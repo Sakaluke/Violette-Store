@@ -1,10 +1,25 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Violette Store`,
+    description: `Jewellery for any ocassion description`,
+    author: `Denis Corlotean`,
   },
   plugins: [
+    {
+      resolve: `gatsby-source-strapi`,
+      options: {
+        apiURL: `http://localhost:1337`,
+        queryLimit: 10000, // Default to 100
+        contentTypes: ["product"],
+        //If using single types place them in this array.
+        // singleTypes: [],
+
+        // loginData: {
+        //   identifier: "",
+        //   password: "",
+        // },
+      },
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
