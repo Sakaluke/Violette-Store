@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from "react"
 import { useStripe, useElements, CardElement } from "@stripe/react-stripe-js"
 import { CartContext } from "../context/CartContext"
 import { formatPrice } from "../utils/format"
+import { API_URL } from "../utils/url"
 
 const generateInput = (label, value, setOnChange) => {
   return (
@@ -64,7 +65,7 @@ const CheckoutForm = () => {
       shipping_postcode,
       cart,
     }
-    const response = await fetch("http://localhost:1337/orders", {
+    const response = await fetch(`${API_URL}/orders`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -80,7 +81,7 @@ const CheckoutForm = () => {
 
   useEffect(() => {
     const loadToken = async () => {
-      const response = await fetch("http://localhost:1337/orders/payment", {
+      const response = await fetch(`${API_URL}/orders/payment`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

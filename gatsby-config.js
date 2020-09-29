@@ -8,7 +8,9 @@ module.exports = {
     {
       resolve: `gatsby-source-strapi`,
       options: {
-        apiURL: process.env.API_URL || "http://localhost:1337",
+        apiURL:
+          process.env.API_URL ||
+          "https://violette-store-backend.herokuapp.com/",
         queryLimit: 10000, // Default to 100
         contentTypes: ["product"],
         //If using single types place them in this array.
