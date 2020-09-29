@@ -22,7 +22,7 @@ const Layout = ({ children }) => {
         <footer>
           © {new Date().getFullYear()}, Built with
           {` `}
-          <a href="https://www.goosefx.com">GooseFx</a>
+          <a href="https://www.goosefx.com">GooseFxxxxx</a>
         </footer>
       </div>
     </>
