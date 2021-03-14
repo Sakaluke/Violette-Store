@@ -1,9 +1,11 @@
 import React, { createContext, useState } from "react"
 import { getCart, saveCart } from "../utils/cart"
+import { Link } from "gatsby"
 export const CartContext = createContext(null)
 
 export default ({ children }) => {
   const [cart, setCart] = useState(getCart())
+  const [searchTerm, setSearchTerm] = useState('')
 
   const updateCart = updatedCart => {
     setCart(updatedCart)
@@ -40,9 +42,33 @@ export default ({ children }) => {
     updateCart(updateCart)
   }
   //-----------------------------------------------------------------
+  
+
+ 
+  // ------------------------- SEARCH AND FILTER GRID-------------------------
+  const SearchEnter = (ev, searchInput) => {
+
+    if(ev.key === 'Enter'){
+ev.preventDefault()
+setSearchTerm(ev.target.value)
+
+  }
+
+    if(ev.type === 'click'){
+     
+      
+      setSearchTerm('')
+      
+     }
+
+
+
+
+}
+  //-----------------------------------------------------------------
 
   return (
-    <CartContext.Provider value={{ cart, addToCart, clearCart }}>
+    <CartContext.Provider value={{ cart, addToCart, clearCart, searchTerm, setSearchTerm, SearchEnter }}>
       {children}
     </CartContext.Provider>
   )

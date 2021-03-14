@@ -2,6 +2,9 @@ import React, { useEffect, useState, useContext } from "react"
 import { useStripe, useElements, CardElement } from "@stripe/react-stripe-js"
 import { CartContext } from "../context/CartContext"
 import { formatPrice } from "../utils/format"
+import Button from "@material-ui/core/Button"
+import { makeStyles } from "@material-ui/core/styles"
+
 import { API_URL } from "../utils/url"
 
 const generateInput = (label, value, setOnChange) => {
@@ -131,7 +134,15 @@ const CheckoutForm = () => {
             setShipping_postcode
           )}
           <CardElement hidePostalCode={true} />
-          <button disabled={!stripe || !valid()}>Pay</button>
+          {/* <button disabled={!stripe || !valid()}>Pay</button> */}
+          <Button
+            disabled={!stripe || !valid()}
+            // className={classes.root}
+
+            variant="contained"
+          >
+            PAY
+          </Button>
         </form>
       </div>
     )

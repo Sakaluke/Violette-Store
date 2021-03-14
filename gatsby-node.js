@@ -7,6 +7,8 @@
 // You can delete this file if you're not using it
 const path = require("path")
 
+////////////////////
+
 const makeRequest = (graphql, request) =>
   new Promise((resolve, reject) => {
     resolve(
@@ -50,3 +52,5 @@ exports.createPages = ({ actions, graphql }) => {
 
   return Promise.all([generateProductPages])
 }
+
+///////////////////////////////////////////////////////////////////////

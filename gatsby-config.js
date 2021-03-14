@@ -6,16 +6,44 @@ module.exports = {
   },
   plugins: [
     {
+  resolve: 'gatsby-plugin-material-ui',
+  options: {
+    stylesProvider: {
+      injectFirst: true,
+    },
+  },
+},
+'gatsby-plugin-styled-components',
+    // 'gatsby-plugin-styled-components',
+    // 'gatsby-plugin-material-ui',
+    // {
+    //   resolve:`gatsby-source-strapi`.
+    //   options: {
+    //     // apiURL: `http://localhost:1337`,
+
+    //     apiURL: "https://violette-store-backend.herokuapp.com",
+
+    //     queryLimit: 10000, // Default to 100
+    //     contentTypes: ["product"],
+    //     //If using single types place them in this array.
+    //     // singleTypes: [],
+
+    //     // loginData: {
+    //     //   identifier: "",
+    //     //   password: "",
+    //     // },
+    //   },
+    // },
+    {
       resolve: `gatsby-source-strapi`,
       options: {
-        apiURL:
-          process.env.API_URL ||
-          "https://violette-store-backend.herokuapp.com/",
+        apiURL: `https://violette-store-backend.herokuapp.com`,
+        // apiURL: `http://localhost:1337`,
         queryLimit: 10000, // Default to 100
         contentTypes: ["product"],
         //If using single types place them in this array.
-        // singleTypes: [],
-
+        // singleTypes: [`home-page`, `contact`],
+        // Possibility to login with a strapi user, when content types are not publically available (optional).
         // loginData: {
         //   identifier: "",
         //   password: "",
